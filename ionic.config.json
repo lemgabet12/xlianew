@@ -1,0 +1,8 @@
+{
+  "name": "xliamob",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

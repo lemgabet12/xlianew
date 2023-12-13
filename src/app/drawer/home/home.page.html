@@ -1,0 +1,207 @@
+<ion-content color="primary">
+  <ion-toolbar>
+    <div><p style="text-align: center">{{RockData.nomhotel}}</p>{{ currentDate | date:'medium' }}</div>
+
+  </ion-toolbar>
+  <ion-list [inset]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\house-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Taux d'occup</ion-label>
+      <ion-note style="color: rgb(248, 241, 241); font-size: 15px; padding: 2%"
+        >{{ RockData.s}}%</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\user-group-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Clients présents</ion-label>
+      <ion-note style="color: rgb(248, 244, 244); font-size: 15px; padding: 2%"
+        >{{ RockData.totlpresent}}</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\user-plus-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Arrivées Effectués</ion-label>
+      <ion-note style="color: rgb(253, 247, 247); font-size: 15px; padding: 2%"
+        >{{ RockData.arrive}}</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\user-xmark-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Departs Effectués</ion-label>
+      <ion-note style="color: rgb(250, 246, 246); font-size: 15px; padding: 2%"
+        >{{ RockData.depart}}</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\arrow-right-to-bracket-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Arrivés Prévues</ion-label>
+      <ion-note style="color: rgb(248, 246, 246); font-size: 15px; padding: 2%"
+        >{{ RockData.arrive}}</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\arrow-right-from-bracket-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Départs Prévues</ion-label>
+      <ion-note style="color: rgb(248, 245, 245); font-size: 15px; padding: 2%"
+        >{{RockData.depart}}</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\bed-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>chb. Occupées</ion-label>
+      <ion-note
+        style="color: rgb(247, 243, 243); font-size: 15px; padding: 2%"
+        slot="end"
+        >{{RockData.totlpresent}}</ion-note
+      >
+    </ion-item>
+    <ion-item color="primary">
+      <img
+        src="\assets\icon\trophy-solid.svg"
+        alt="home"
+        color="primary"
+        style="width: 5%; height: 5%"
+        color="warning"
+        slot="start"
+        name="list-circle"
+        size="large"
+      />
+      <ion-label>Chambres Dispo</ion-label>
+      <ion-note
+        style="color: rgb(241, 240, 240); font-size: 15px; padding: 2%"
+        slot="end"
+        >{{RockData.sum}}</ion-note
+      >
+    </ion-item>
+  </ion-list>
+
+  <ion-content class="ion-margin" colspan="2">
+    <ion-grid class="ion-margin" colspan="2">
+      <p style="text-align: center;">Prévisions d'une semaine</p>
+      <canvas #lineCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+
+      <ion-row colspan="2" rowspan="2">
+        <ion-col>Journée</ion-col>
+        <ion-col>Départ</ion-col>
+        <ion-col>Arrivée</ion-col>
+        <ion-col>Pax</ion-col>
+        <ion-col>Occup</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> {{tomorrow | date: 'dd-MM'}} </ion-col>
+        <ion-col>{{RockData.arrT}}</ion-col>
+        <ion-col>{{RockData.depT}}</ion-col>
+        <ion-col>{{RockData.totlpTT}}</ion-col>
+        <ion-col>0,69 %</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col> {{firstday | date: 'dd-MM'}} </ion-col>
+        <ion-col>{{RockData.arrFd}}</ion-col>
+        <ion-col>{{RockData.depFd}}</ion-col>
+        <ion-col>{{RockData.totlpTFd}}</ion-col>
+        <ion-col>0,69 %</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> {{secondday | date: 'dd-MM'}} </ion-col>
+        <ion-col>{{RockData.arrSd}}</ion-col>
+        <ion-col>{{RockData.depSd}}</ion-col>
+        <ion-col>{{RockData.totlpSd}}</ion-col>
+        <ion-col>0,69 %</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> {{thirdday |date: 'dd-MM'}} </ion-col>
+        <ion-col>{{RockData.arrThd}}</ion-col>
+        <ion-col>{{RockData.depThd}}</ion-col>
+        <ion-col>{{RockData.totlpThd}}</ion-col>
+        <ion-col>0,69 %</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> {{fifthday |date: 'dd-MM'}} </ion-col>
+        <ion-col>{{RockData.arrThd}}</ion-col>
+        <ion-col>{{RockData.depThd}}</ion-col>
+        <ion-col>{{RockData.totlpThd}}</ion-col>
+        <ion-col>0,69 %</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> {{sixday |date: 'dd-MM'}} </ion-col>
+        <ion-col>{{RockData.arrThd}}</ion-col>
+        <ion-col>{{RockData.depThd}}</ion-col>
+        <ion-col>{{RockData.totlpThd}}</ion-col>
+        <ion-col>0,69 %</ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>
+   
+</ion-content>
+
+
+
+
