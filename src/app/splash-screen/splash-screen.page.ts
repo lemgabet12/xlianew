@@ -17,7 +17,7 @@ export class SplashScreenPage  {
   password: String | undefined;
 
   constructor(private router: Router , private alertController: AlertController, private http: HttpClient) {
-    this.ResidentApiUrl = 'http://192.168.3.8:3013/hotel/countRack';
+    this.ResidentApiUrl = 'http://196.234.125.66:3084/hotel/countRack';
   }
   ngOnInit() {
     this.readAPI(this.ResidentApiUrl)
@@ -33,7 +33,7 @@ export class SplashScreenPage  {
   }
   login() {
     if (this.password == this.correctPassword) {
-      this.router.navigate(['auth']);
+      this.router.navigate(['/menu/home']);
       // Add your login logic here
     } else {
       this.showAlert('Error', 'mot de passe incorrect');

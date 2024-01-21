@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path:'',
-    loadChildren: () =>
-    import('../app/splash-screen/splash-screen.module').then((m) => m.SplashScreenPageModule)
-  },
+
   {
     path: 'auth',
     loadChildren: () =>
@@ -15,6 +11,10 @@ const routes: Routes = [
   {
     path: 'chart',
     loadChildren: () => import('./chart/chart.module').then( m => m.ChartPageModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
 
 

@@ -26,12 +26,13 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'Arabsoft',
+        path: 'Agence',
         loadChildren: () =>
           import('./invite-friend/invite-friend.module').then(
             (m) => m.InviteFriendPageModule
           ),
       },
+
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ],
   },

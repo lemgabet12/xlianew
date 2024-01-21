@@ -53,17 +53,17 @@ export class DrawerPage implements AfterViewInit {
   drawerItemListRef?: QueryList<ElementRef>;
 
   appPages: DrawerScreen[] = [
-    { name: 'Home', icon: 'home', url: '/menu/home' },
+    { name: 'Etat Hotel', icon: 'home',isAsset: true, url: 'home' },
     {
-      name: 'Reservation',
+      name: "Agence",
       icon: 'book',
       isAsset: true,
-      url: '/menu/Reservation',
+      url: 'Reservation',
     },
-    { name: 'Feedback', icon: 'help', url: '/menu/feedback' },
-    //{ name: 'Invite Friend', icon: 'group', url: '/menu/invite-friend' },
-    { name: 'arabsoft', icon: 'share', url: undefined },
-    { name: 'A propos', icon: 'info', url: '/menu/a-propos' },
+    { name: 'Restaurant', icon: 'help',isAsset: true, url: 'feedback' },
+    { name: 'Services', icon: 'group',isAsset: true, url: 'invite-friend' },
+    { name: "Residents(VIP)",isAsset: true, icon: 'info', url: 'menu/' },
+
   ];
   drawerWidth: number = 280;
   rowWidth: number = this.drawerWidth - 64;
@@ -84,7 +84,7 @@ export class DrawerPage implements AfterViewInit {
 
 
 
-    this.ResidentApiUrl = 'http://192.168.3.8:3013/hotel/countRack';
+    this.ResidentApiUrl = 'http://196.234.125.66:3084/hotel/countRack';
 
   }
   userData = {

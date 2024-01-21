@@ -15,6 +15,13 @@ ion-content.ios {
   margin-top: calc(var(--ion-safe-area-top) + 8px);
 } */
 
+.y-axis-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
 ion-img {
   height: 320px;
   padding: 0px 16px;
@@ -25,6 +32,8 @@ ion-img {
     object-fit: scale-down; // this works on bigger device better
   }
 }
+.col , .row
+{background-color: white;}
 
 .ios ion-img {
   margin-top: var(--ion-safe-area-top);

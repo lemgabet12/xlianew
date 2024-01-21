@@ -1,5 +1,5 @@
 <div>
-  <ion-split-pane contentId="main-content">
+  <ion-split-pane contentId="main-content" >
     <ion-menu
       class="menu-type-reveal"
       style="--width: {{drawerWidth}}px"
@@ -9,12 +9,18 @@
       type="my-reveal"
       [maxEdgeStart]="platform.width()"
     >
-      <div class="headerToolbar" style="background-color: orange;">
+      <div class="headerToolbar" style="background-color: orange">
         <ion-avatar class="userImage" #userAvatar>
-          <ion-img [src]='userData.imgHotel' alt="xlia" class="user_container" ></ion-img>
+          <ion-img
+            [src]="userData.imgHotel"
+            alt="xlia"
+            class="user_container"
+          ></ion-img>
         </ion-avatar>
         <div class="nameContainer">
-          <ion-label class="userName" style="color: black;">{{userData.nomhotel}}</ion-label>
+          <ion-label class="userName" style="color: black"
+            >{{userData.nomhotel}}</ion-label
+          >
         </div>
       </div>
       <div class="divider"></div>
@@ -63,11 +69,16 @@
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
-      <div class="divider"></div>
+
       <ion-footer class="ion-no-border" (click)="logout()">
         <ion-toolbar class="ion-no-padding" (click)="logout()">
-          <ion-item button="true" detail="false" lines="none" (click)="logout()">
-            <ion-label class="sign-out-text" >Sign Out</ion-label>
+          <ion-item
+            button="true"
+            detail="false"
+            lines="none"
+            (click)="logout()"
+          >
+            <ion-label class="sign-out-text">Sign Out</ion-label>
             <i class="material-icons colorRed">power_settings_new</i>
           </ion-item>
         </ion-toolbar>
@@ -80,7 +91,7 @@
   <!-- Reference:- https://codepen.io/carlosriera/pen/qNgAEo/ -->
   <!-- [ngClass]="{'open': isMenuActive === true}" -->
   <div
-    style="position: absolute"
+    style="position: absolute; margin : 10%"
     class="menu menu--back5 ion-activatable"
     (click)="onMenuClick()"
     [hidden]="isSplitPane"

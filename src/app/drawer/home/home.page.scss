@@ -7,7 +7,6 @@ ion-toolbar {
 }
 ion-toolbar {
   position: fixed;
-  margin-bottom: 5%;
  /* Adjust the z-index as needed */
 }
 ion-list {
@@ -25,13 +24,13 @@ ion-title {
 }
 
 ion-title.md {
-  text-align: center;
   margin-left: 48px; // menu icon space
 }
-ion-grid , ion-row , ion-col {
-  border: 1px black dotted  ;
-  text-align : center;
+ ion-col {
+  border: 1px black solid  ;
+
 }
+
 ion-item {
   --padding-end: 0px;
   --inner-padding-end: 0px;
@@ -41,14 +40,25 @@ ion-item {
     aspect-ratio: 1.5;
     object-fit: cover;
   }
+  .sc1
+  {
+    display: flex;
+    flex-wrap: nowrap;
 
+  }
+  ion-row {
+    border: 1px solid black;
+  }
 }
-.Pax 
+.hidden {
+  display: none;
+}
+.Pax
 {
   color: green;
 
 }
-.Chambre 
+.Chambre
  {
   color: red;
  }
@@ -56,3 +66,37 @@ ion-item {
 .material-icons.darkgrey {
   color: var(--color-darkgrey);
 }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+
+}
+
+th, td {
+  text-align: left;
+  padding: 6px;
+  border: 1px solid #ddd; /* Add borders to cells */
+
+}
+th{
+  background-color: #f2f2f2; /* Add a background color for headers */
+}
+
+.table-title {
+  text-align: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+  font-size: 2.5em; /* Adjust the font size as needed */
+  color: #fff; /* Set the color of the title text */
+}
+.table-description {
+  text-align: left;
+  font-size: 1em; /* Adjust the font size as needed */
+  color: #eee; /* Set the color of the description text */
+}
+ion-content {
+  --background: url('../../../assets/images/backgourndionic.jpeg') center center no-repeat;
+  background-size: cover;  }
+tr:nth-child(even){background-color: #f2f2f2}

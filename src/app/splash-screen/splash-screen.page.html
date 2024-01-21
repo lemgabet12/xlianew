@@ -9,7 +9,7 @@
           </div>
           <ion-item>
             <ion-label position="floating">Password</ion-label>
-            <ion-input [(ngModel)]="password" name="password" type="text" required></ion-input>
+            <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
           </ion-item>
           <div padding>
             <ion-button  size="large" type="submit" (click) = login()>Se Connecter</ion-button>
@@ -17,5 +17,19 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+  </form>
+
+
+  <div text-center>
+    <h3>Entrer Le Code De Hotel </h3>
+  </div>
+  <form >
+    <img src="../assets/xlia.ico" width="250px" alt="" srcset="">
+    <ion-item>
+      <ion-label position="floating">Entrer Code </ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" (click) = login()>Login</ion-button>
   </form>
 </ion-content>
